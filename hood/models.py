@@ -52,3 +52,9 @@ class Business(models.Model):
     business_location = models.CharField(max_length=30,blank=True)
     business_neighborhood = models.ForeignKey('Neighborhood',on_delete=models.CASCADE)
     email = models.EmailField()
+
+    def create_business(self):
+        self.save()
+
+    def delete_business(self):
+        self.delete()
