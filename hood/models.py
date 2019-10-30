@@ -32,3 +32,7 @@ class UserProfile(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     location = models.CharField(max_length=30,blank=True)
     neighborhood = models.ForeignKey('Neighborhood',on_delete=models.CASCADE,null=True,blank=True)
+
+    def assign_neighborhood(self,neighborhood):
+        self.neighborhood = neighborhood
+        self.save()
