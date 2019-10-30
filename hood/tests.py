@@ -85,3 +85,9 @@ class BusinessTestClass(TestCase):
         self.new_business.create_business()
         business = Business.find_business(1)
         self.assertEqual(business.name,'Test Business')
+
+    def test_update_business(self):
+        self.new_business.create_business()
+        business = Business.find_business(1)
+        business.update_business('Another Business')
+        self.assertEqual(business.name,'Another Business')
