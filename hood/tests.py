@@ -16,3 +16,18 @@ class UserProfileTestClass(TestCase):
         self.new_profile.save_profile()
         profiles = UserProfile.objects.all()
         self.assertTrue(len(profiles) > 0)
+
+    def test_delete_profile(self):
+        self.new_profile.delete_profile()
+        profiles = UserProfile.objects.all()
+        self.assertTrue(len(profiles) == 0)
+
+    def test_assign_neighborhood(self):
+
+        self.new_profile.save_profile()
+        profile = UserProfile.objects.filter(id=1).first()
+        self.new_neighborhood.save()
+        neighborhood = Neighborhood.objects.filter(id=1).first()
+        profile.assign_neighborhood(neighborhood)
+
+        self.assertEqual(profile.neighborhood.id,1)
