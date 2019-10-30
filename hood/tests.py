@@ -31,3 +31,15 @@ class UserProfileTestClass(TestCase):
         profile.assign_neighborhood(neighborhood)
 
         self.assertEqual(profile.neighborhood.id,1)
+
+class NeighborhoodTestClass(TestCase):
+    def setUp(self):
+        self.new_neighborhood = Neighborhood(id=1,neighborhood_name='Test Neighborhood')
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.new_neighborhood,Neighborhood))
+
+    def test_create_neighborhood(self):
+        self.new_neighborhood.create_neighborhood()
+        neighborhoods = Neighborhood.objects.all()
+        self.assertTrue(len(neighborhoods) > 0)
