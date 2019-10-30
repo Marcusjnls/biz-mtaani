@@ -21,3 +21,8 @@ class Neighborhood(models.Model):
     def update_neighborhood(self,name):
         self.name = name
         self.save()
+
+
+    def __str__(self):
+        return f'{self.neighborhood_name}'
+
