@@ -63,3 +63,11 @@ class Business(models.Model):
     def find_business(cls,business_id):
         business = cls.objects.get(id=business_id)
         return business
+
+    def update_business(self,name):
+        self.name = name
+        self.save()
+
+    def __str__(self):
+        return f'{self.name}'
+
