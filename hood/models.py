@@ -58,3 +58,8 @@ class Business(models.Model):
 
     def delete_business(self):
         self.delete()
+
+    @classmethod
+    def find_business(cls,business_id):
+        business = cls.objects.get(id=business_id)
+        return business
