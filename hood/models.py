@@ -12,3 +12,8 @@ class Neighborhood(models.Model):
 
     def delete_neighborhood(self):
         self.delete()
+
+    @classmethod
+    def find_neighborhood(cls,neighborhood_id):
+        neighborhood = cls.objects.get(id=neighborhood_id)
+        return neighborhood
