@@ -104,3 +104,11 @@ def add_biz(request):
         business_form = AddBusinessForm()
     return render(request,'biz.html',{'business_form':business_form})
 
+
+def change_neighborhood(request,neighborhood_id):
+    profile = UserProfile.objects.filter(user = request.user).first()
+    neighborhood = Neighborhood.objects.get(id=neighborhood_id)
+    profile.neighborhood = neighborhood
+    profile.save()
+    return redirect(reverse('neighborhood',args=[neighborhood.id]))
+
