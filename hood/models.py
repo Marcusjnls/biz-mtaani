@@ -17,3 +17,7 @@ class Neighborhood(models.Model):
     def find_neighborhood(cls,neighborhood_id):
         neighborhood = cls.objects.get(id=neighborhood_id)
         return neighborhood
+
+    def update_neighborhood(self,name):
+        self.name = name
+        self.save()
