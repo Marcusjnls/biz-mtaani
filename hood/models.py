@@ -45,3 +45,10 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return f'{self.user.username}'
+
+class Business(models.Model):
+    name = models.CharField(max_length=30)
+    owner = models.ForeignKey(User,on_delete=models.CASCADE)
+    business_location = models.CharField(max_length=30,blank=True)
+    business_neighborhood = models.ForeignKey('Neighborhood',on_delete=models.CASCADE)
+    email = models.EmailField()
