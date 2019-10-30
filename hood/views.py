@@ -38,3 +38,7 @@ def index(request):
                 user = UserProfile.objects.filter(user = request.user).first()
                 return redirect(reverse('neighborhood',args=[user.neighborhood.id]))
 
+def signout(request):
+    logout(request)
+    return redirect('login')
+
